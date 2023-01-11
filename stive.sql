@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 04 jan. 2023 à 13:27
+-- Généré le : mer. 11 jan. 2023 à 14:52
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -32,11 +32,9 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `IdArticle` int NOT NULL AUTO_INCREMENT,
   `NomArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `DescriptifArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `QuantiteEnStock` int NOT NULL,
   `ImageArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `PrixVentehtArticle` double NOT NULL,
-  `RistourneCartonArticle` double DEFAULT NULL,
-  `NbDansCartonArticle` int DEFAULT NULL,
-  `PrixVenteCartonhtArticle` double DEFAULT NULL,
   `PrixAchathtArticle` double NOT NULL,
   `AnneeArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `IdFamille` int NOT NULL,
@@ -49,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `ImageArticle`, `PrixVentehtArticle`, `RistourneCartonArticle`, `NbDansCartonArticle`, `PrixVenteCartonhtArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`) VALUES
-(1, 'Imprévu', NULL, NULL, 19.99, 0.95, 6, 113.99, 12, '2020', 2, 1, 1);
+INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `QuantiteEnStock`, `ImageArticle`, `PrixVentehtArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`) VALUES
+(1, 'Imprévu', NULL, 0, NULL, 19.99, 12, '2020', 2, 1, 1);
 
 -- --------------------------------------------------------
 
