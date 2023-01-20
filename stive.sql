@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 20 jan. 2023 à 08:32
+-- Généré le : ven. 20 jan. 2023 à 13:14
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,28 +42,38 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `IdCoef` int NOT NULL,
   `NumeroArticle` varchar(8) NOT NULL,
   PRIMARY KEY (`IdArticle`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
 INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `QuantiteEnStock`, `ImageArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`, `IdCoef`, `NumeroArticle`) VALUES
-(1, 'Imprévu', NULL, 0, NULL, 12, '2020', 2, 1, 1, 0, '');
+(8, 'Imprévu', 'Vin rouge du domaine Tariquet', 10, NULL, 29.99, '2020', 1, 1, 1, 1, '01010008');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `coef`
+-- Structure de la table `coefs`
 --
 
-DROP TABLE IF EXISTS `coef`;
-CREATE TABLE IF NOT EXISTS `coef` (
+DROP TABLE IF EXISTS `coefs`;
+CREATE TABLE IF NOT EXISTS `coefs` (
   `IdCoef` int NOT NULL AUTO_INCREMENT,
   `ValeurCoef` double NOT NULL,
   `LibelleCoef` text NOT NULL,
   PRIMARY KEY (`IdCoef`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `coefs`
+--
+
+INSERT INTO `coefs` (`IdCoef`, `ValeurCoef`, `LibelleCoef`) VALUES
+(1, 1.5, 'Coef de base'),
+(2, 1.42, 'Coef -5%'),
+(3, 1.35, 'Coef -10%'),
+(4, 1.2, 'Coef -20%');
 
 -- --------------------------------------------------------
 
@@ -272,7 +282,15 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `IdFonction` int NOT NULL,
   `NumeroUtilisateur` varchar(10) NOT NULL,
   PRIMARY KEY (`IdUtilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`IdUtilisateur`, `NomUtilisateur`, `PrenomUtilisateur`, `MailUtilisateur`, `MotdePasseUtilisateur`, `AdresseUtilisateur`, `CodePostalUtilisateur`, `VilleUtilisateur`, `TelephoneUtilisateur`, `IdFonction`, `NumeroUtilisateur`) VALUES
+(2, 'h', 'h', 'h', 'g', 'h', 'h', 'h', 'g', 1, ''),
+(3, 'd', 'jd', 'dj', 'htsj', 'hqerw', 'js', 'jsj', 'hst', 1, '01233');
 
 -- --------------------------------------------------------
 
