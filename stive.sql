@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 11 jan. 2023 à 14:52
+-- Généré le : ven. 20 jan. 2023 à 08:32
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -34,12 +34,13 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `DescriptifArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `QuantiteEnStock` int NOT NULL,
   `ImageArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `PrixVentehtArticle` double NOT NULL,
   `PrixAchathtArticle` double NOT NULL,
   `AnneeArticle` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `IdFamille` int NOT NULL,
   `IdDomaine` int NOT NULL,
   `IdTVA` int NOT NULL,
+  `IdCoef` int NOT NULL,
+  `NumeroArticle` varchar(8) NOT NULL,
   PRIMARY KEY (`IdArticle`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -47,8 +48,22 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `QuantiteEnStock`, `ImageArticle`, `PrixVentehtArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`) VALUES
-(1, 'Imprévu', NULL, 0, NULL, 19.99, 12, '2020', 2, 1, 1);
+INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `QuantiteEnStock`, `ImageArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`, `IdCoef`, `NumeroArticle`) VALUES
+(1, 'Imprévu', NULL, 0, NULL, 12, '2020', 2, 1, 1, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `coef`
+--
+
+DROP TABLE IF EXISTS `coef`;
+CREATE TABLE IF NOT EXISTS `coef` (
+  `IdCoef` int NOT NULL AUTO_INCREMENT,
+  `ValeurCoef` double NOT NULL,
+  `LibelleCoef` text NOT NULL,
+  PRIMARY KEY (`IdCoef`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -113,6 +128,30 @@ INSERT INTO `domaines` (`IdDomaine`, `NomDomaine`, `DescriptifDomaine`, `MailDom
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `etatcommandes`
+--
+
+DROP TABLE IF EXISTS `etatcommandes`;
+CREATE TABLE IF NOT EXISTS `etatcommandes` (
+  `IdEtatCommande` int NOT NULL AUTO_INCREMENT,
+  `LibelleEtatCommande` text NOT NULL,
+  PRIMARY KEY (`IdEtatCommande`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `etatcommandes`
+--
+
+INSERT INTO `etatcommandes` (`IdEtatCommande`, `LibelleEtatCommande`) VALUES
+(1, 'Panier'),
+(2, 'CommandeValidee'),
+(3, 'CommandePayee'),
+(4, 'CommandeExpediee'),
+(5, 'CommandeRecue');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `familles`
 --
 
@@ -169,6 +208,8 @@ DROP TABLE IF EXISTS `lignecommandeclients`;
 CREATE TABLE IF NOT EXISTS `lignecommandeclients` (
   `IdLigneCommandeClient` int NOT NULL AUTO_INCREMENT,
   `QuantiteLigneCommandeClient` int NOT NULL,
+  `PrixAchathtLigneCommandeClient` double NOT NULL,
+  `TauxTVALigneCommandeClient` double NOT NULL,
   `IdArticle` int NOT NULL,
   `IdCommandeClient` int NOT NULL,
   PRIMARY KEY (`IdLigneCommandeClient`)
@@ -184,6 +225,7 @@ DROP TABLE IF EXISTS `lignecommandedomaines`;
 CREATE TABLE IF NOT EXISTS `lignecommandedomaines` (
   `IdLigneCommandeDomaine` int NOT NULL AUTO_INCREMENT,
   `QuantiteLigneCommandeDomaine` int NOT NULL,
+  `PrixAchathtLigneCommandeDomaines` double NOT NULL,
   `IdArticle` int NOT NULL,
   `IdCommandeDomaine` int NOT NULL,
   PRIMARY KEY (`IdLigneCommandeDomaine`)
@@ -228,6 +270,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `VilleUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `TelephoneUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `IdFonction` int NOT NULL,
+  `NumeroUtilisateur` varchar(10) NOT NULL,
   PRIMARY KEY (`IdUtilisateur`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
