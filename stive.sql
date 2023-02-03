@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 20 jan. 2023 à 13:14
+-- Généré le : ven. 03 fév. 2023 à 08:44
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,14 +42,50 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `IdCoef` int NOT NULL,
   `NumeroArticle` varchar(8) NOT NULL,
   PRIMARY KEY (`IdArticle`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
 INSERT INTO `articles` (`IdArticle`, `NomArticle`, `DescriptifArticle`, `QuantiteEnStock`, `ImageArticle`, `PrixAchathtArticle`, `AnneeArticle`, `IdFamille`, `IdDomaine`, `IdTVA`, `IdCoef`, `NumeroArticle`) VALUES
-(8, 'Imprévu', 'Vin rouge du domaine Tariquet', 10, NULL, 29.99, '2020', 1, 1, 1, 1, '01010008');
+(14, 'Pilaho rosé', NULL, 15, NULL, 29.99, '2020', 3, 2, 1, 1, '02030014'),
+(13, 'Pilaho blanc', NULL, 15, NULL, 29.99, '2020', 2, 2, 1, 1, '02020013'),
+(12, 'Imprévu Blanc par 6', NULL, 15, NULL, 229.99, '2020', 2, 1, 1, 1, '01020012'),
+(11, 'Imprévu Blanc', NULL, 15, NULL, 49.99, '2020', 2, 1, 1, 1, '01020011'),
+(10, 'Bas armagnac', NULL, 15, NULL, 69.99, '2020', 5, 1, 1, 1, '01050010'),
+(9, 'Imprevu par 6', NULL, 20, NULL, 169.99, '2020', 1, 1, 1, 1, '01020009'),
+(8, 'Imprevu', 'Vin rouge du domaine Tariquet', 10, NULL, 29.99, '2020', 1, 1, 1, 1, '01010008'),
+(15, 'Manseng noir', NULL, 15, NULL, 29.99, '2019', 1, 2, 1, 1, '02010015'),
+(16, 'Manseng noir par 6', NULL, 15, NULL, 149.99, '2019', 1, 2, 1, 1, '02010016'),
+(17, 'Ampéloméryx rouge', NULL, 35, NULL, 49.99, '2019', 1, 2, 1, 1, '02010017'),
+(18, 'Ampéloméryx rouge par 6', NULL, 21, NULL, 229.99, '2019', 1, 2, 1, 1, '02010018'),
+(19, 'Armagnac', NULL, 21, NULL, 229.99, '1973', 5, 2, 1, 1, '02050019'),
+(20, 'Armagnac', NULL, 21, NULL, 199.99, '1974', 5, 2, 1, 1, '02050020'),
+(21, 'Eros', NULL, 30, NULL, 19.99, '2019', 3, 3, 1, 1, '03030021'),
+(22, 'L\'insolent', NULL, 42, NULL, 24.99, '2019', 1, 3, 1, 1, '03010022'),
+(23, 'L\'insolent par 6 ', NULL, 21, NULL, 139.99, '2019', 1, 3, 1, 1, '03010023'),
+(24, 'Brut de Joÿ', NULL, 45, NULL, 39.99, '2022', 4, 3, 1, 1, '03040024'),
+(25, 'Brut de Joÿ par 6', NULL, 45, NULL, 229.99, '2022', 4, 3, 1, 1, '03040025'),
+(26, 'Armagnac by Joÿ', NULL, 38, NULL, 69.99, '2012', 5, 3, 1, 1, '03050026'),
+(27, 'Maubet rouge', NULL, 62, NULL, 39.99, '2020', 1, 4, 1, 1, '04010027'),
+(28, 'Maubet rouge par 6', NULL, 31, NULL, 229.99, '2020', 1, 4, 1, 1, '04010028'),
+(29, 'Maubet blanc', NULL, 52, NULL, 28.99, '2020', 2, 4, 1, 1, '04020029'),
+(30, 'Maubet blanc par 6', NULL, 25, NULL, 214.99, '2020', 2, 4, 1, 1, '04020030'),
+(31, 'Maubet rosé par 6', NULL, 21, NULL, 194.99, '2021', 3, 4, 1, 1, '04030031'),
+(32, 'Maubet rosé', NULL, 56, NULL, 22.99, '2021', 3, 4, 1, 1, '04030032'),
+(33, 'Bas armagnac XO', NULL, 56, NULL, 74.99, '2000', 5, 4, 1, 1, '04050033'),
+(34, 'Bas armagnac VSOP', NULL, 33, NULL, 64.99, '2000', 5, 4, 1, 1, '04050034'),
+(35, 'Bas armagnac Hors d\'âge', NULL, 19, NULL, 225.99, '1970', 5, 4, 1, 1, '04050035'),
+(36, 'N°7 Tannat', NULL, 26, NULL, 21.99, '2021', 1, 5, 1, 1, '05010036'),
+(37, 'N°7 Tannat par 6', NULL, 21, NULL, 159.99, '2021', 1, 5, 1, 1, '05010037'),
+(38, 'N°1 Sauvignon ', NULL, 23, NULL, 13.99, '2021', 2, 5, 1, 1, '05020038'),
+(39, 'N°1 Sauvignon par 6', NULL, 18, NULL, 59.99, '2021', 2, 5, 1, 1, '05020039'),
+(40, 'N°6 Rosé par 6', NULL, 25, NULL, 59.99, '2021', 3, 5, 1, 1, '05030040'),
+(41, 'N°6 Rosé', NULL, 72, NULL, 12.99, '2021', 3, 5, 1, 1, '05030041'),
+(42, '002 Pétillant', NULL, 102, NULL, 14.99, '2022', 4, 5, 1, 1, '05040042'),
+(43, '002 Pétillant par 6', NULL, 62, NULL, 79.99, '2022', 4, 5, 1, 1, '05040043'),
+(44, 'Armagnac Oak', NULL, 51, NULL, 79.99, '2010', 5, 5, 1, 1, '05050044');
 
 -- --------------------------------------------------------
 
@@ -194,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `fonctions` (
   `IdFonction` int NOT NULL AUTO_INCREMENT,
   `LibelleFonction` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`IdFonction`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `fonctions`
@@ -205,8 +241,7 @@ INSERT INTO `fonctions` (`IdFonction`, `LibelleFonction`) VALUES
 (2, 'GestionnaireCommercial'),
 (3, 'GestionnaireStock'),
 (4, 'GestionnaireInventaire'),
-(5, 'ClientEnregistre'),
-(6, 'UtilisateurNonEnregistre');
+(5, 'ClientEnregistre');
 
 -- --------------------------------------------------------
 
@@ -271,18 +306,18 @@ INSERT INTO `tvas` (`IdTva`, `TauxTva`, `LibelleTVA`) VALUES
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `IdUtilisateur` int NOT NULL AUTO_INCREMENT,
-  `NomUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `NomUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `PrenomUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `MailUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `MotdePasseUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `AdresseUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `CodePostalUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `VilleUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `TelephoneUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TelephoneUtilisateur` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `IdFonction` int NOT NULL,
   `NumeroUtilisateur` varchar(10) NOT NULL,
   PRIMARY KEY (`IdUtilisateur`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -290,7 +325,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`IdUtilisateur`, `NomUtilisateur`, `PrenomUtilisateur`, `MailUtilisateur`, `MotdePasseUtilisateur`, `AdresseUtilisateur`, `CodePostalUtilisateur`, `VilleUtilisateur`, `TelephoneUtilisateur`, `IdFonction`, `NumeroUtilisateur`) VALUES
 (2, 'h', 'h', 'h', 'g', 'h', 'h', 'h', 'g', 1, ''),
-(3, 'd', 'jd', 'dj', 'htsj', 'hqerw', 'js', 'jsj', 'hst', 1, '01233');
+(3, 'd', 'jd', 'dj', 'htsj', 'hqerw', 'js', 'jsj', 'hst', 1, '01233'),
+(4, 'TAMAGNI', 'Thibaud', 'thibaud.tamagni@gmail.com', '1234', '17 rue des vins', '69000', 'LYON', '1', 1, '02234'),
+(5, 'HARZALLAH', 'Saïd', 'said.harzallah@gmail.com', '1234', '42 chemin ', '69000', 'LYON', '1', 2, '02235'),
+(6, 'THENON', 'Frédéric', 'frederic.thenon', '1234', '42 chemin des Molières', '69000', 'LYON', '1', 2, '02236'),
+(7, 'DUPOND', 'Frédéric', 'dupond@', '1234', '17 rue du pont', '69000', 'LYON', '1', 3, '02237'),
+(8, 'MARTIN', 'Arthur', 'martin', '1234', '17 rue de la cusine', '69000', 'LYON', '1', 4, '02238'),
+(9, 'DUPONT', 'Louis', 'louis', '1234', '123 rue du conte', '69000', 'LYON', '1', 5, '02239'),
+(10, 'BERGER', 'Nathalie', 'nathalie', '1234', '321 avenue de saone', '69000', 'LYON', '1', 5, '022310'),
+(11, 'BERGER', 'Thomas', 'thomas', '1234', '321 avenue de saone', '69000', 'LYON', '1', 5, '022311'),
+(12, 'THENON', 'Léo', 'leo', '1234', '23 impasse du chat', '69000', 'LYON', '1', 5, '022312');
 
 -- --------------------------------------------------------
 
